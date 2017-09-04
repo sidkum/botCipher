@@ -1,0 +1,1 @@
+use "http://www.datatables.org/yahoo/finance/quote/yahoo.finance.quote.xml" as t1; select Name, LastTradePriceOnly from t1 where symbol="REM"
