@@ -1,2 +1,2 @@
 
-web: python weather.py
+web: python stock.py
