@@ -52,10 +52,10 @@ def webhook():
 def processRequest(req):
     if req.get("result").get("action") == "yahooWeatherForecast":
         from weather import processRequest(req)
-            res = processRequest(req)
+        res = processRequest(req)
     if req.get("result").get("action") == "stockquote":
        from stock import processRequest(req)
-            res = processRequest(req)
+       res = processRequest(req)
     return res
 
 if __name__ == '__main__':
