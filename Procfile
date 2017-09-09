@@ -1,2 +1,2 @@
 
-web: python stock.py
+web: python app.py
