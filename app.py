@@ -56,6 +56,9 @@ def processRequest(req):
     if req.get("result").get("action") == "stockquote":
        from stock import processRequest
        res = processRequest(req)
+    if req.get("result").get("action") == "newslive":
+       from stock import processRequest
+       res = processRequest(req)
     return res
 
 if __name__ == '__main__':
