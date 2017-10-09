@@ -41,7 +41,7 @@ def processRequest(req):
         return createResponse(speech, speech)
 
     
-    yql_url = "https://newsapi.org/v1/articles?source=the-next-web&sortBy=latest&apiKey=6614fb3731b2472c9efa015800e01de3"
+    yql_url = "https://newsapi.org/v1/articles?source=cnn&apiKey=6614fb3731b2472c9efa015800e01de3"
 
     
     result = urlopen(yql_url).read()
@@ -53,10 +53,10 @@ def processRequest(req):
 
 
 def makeWebhookResult(data):
-    query = data.get('source')
-    if query is None:
-        speech = "query element missing from news's response"
-        return createResponse(speech, speech)
+    query = data.get()
+   # if query is None:
+    #    speech = "query element missing from news's response"
+     #   return createResponse(speech, speech)
 
     result = query.get('results')
     if result is None:
