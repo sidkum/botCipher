@@ -41,7 +41,7 @@ def processRequest(req):
         return createResponse(speech, speech)
 
     
-    yql_url = https://newsapi.org/v1/articles?source=the-next-web&sortBy=latest&apiKey={API_KEY}
+    yql_url = https://newsapi.org/v1/articles?source=the-next-web&sortBy=latest&apiKey=6614fb3731b2472c9efa015800e01de3
 
     
     result = urlopen(yql_url).read()
