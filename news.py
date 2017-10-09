@@ -42,7 +42,7 @@ def processRequest(req):
 
     
     yql_url = "https://newsapi.org/v1/articles?source=cnn&apiKey=6614fb3731b2472c9efa015800e01de3"
-
+    return createResponse(yql_url,yql_url)
     
     result = urlopen(yql_url).read()
     data = json.loads(result)
