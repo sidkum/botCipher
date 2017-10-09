@@ -59,8 +59,8 @@ def processRequest(req):
     yql_url = baseurl + urlencode({'q': yql_query}) + "&format=json"
     result = urlopen(yql_url).read()
     data = json.loads(result)
-      res = {
-        "speech": yqp_url,
+    res = {
+        "speech":,
         "displayText": yqp_url,
         # "data": data,
         # "contextOut": [],
