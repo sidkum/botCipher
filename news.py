@@ -53,7 +53,7 @@ def processRequest(req):
 
 
 def makeWebhookResult(data):
-    query = data.get('query')
+    query = data.get('articles')
     if query is None:
         speech = "query element missing from news's response"
         return createResponse(speech, speech)
