@@ -39,7 +39,7 @@ def processRequest(req):
     if req.get("result").get("action") != "newslive":
         speech = "Invalid Action specified"
         return createResponse(speech, speech)
-    yql_url = "https://newsapi.org/v1/articles?source=cnn&apiKey=6614fb3731b2472c9efa015800e01de3"
+    yql_url = "https://newsapi.org/v1/articles?source=the-times-of-india&sortBy=top&apiKey=1a60aa7f22824543ae9f5bd4af4c6b0e"
     result = urlopen(yql_url).read()
     data = json.loads(result)
     #return {
