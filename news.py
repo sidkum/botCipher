@@ -35,62 +35,73 @@ def webhook():
     return r
 
 
-def processRequest(req):
-    if req.get("result").get("action") != "news.search":
-        speech = "Invalid Action specified"
-        return createResponse(speech, speech)
-    yql_url = "https://newsapi.org/v1/articles?source=cnn&apiKey=6614fb3731b2472c9efa015800e01de3"
-    result = urlopen(yql_url).read()
-    data = json.loads(result)
-    #return {
-#	"speech":data.get("status"),
-#	"displayText":data.get("source")
- #   	}
-    res = makeWebhookResult(data)
-    return res
-
-
-
-
-def makeWebhookResult(data):
-    query = data.get("articles")
-    if query is None:
-        speech = "query element missing from news's response"
-        return createResponse(speech, speech)
-    from random import randint
-    i=randint(0,6)
-    title = data.get("articles")[i].get("title")
-    descrip = data.get("articles")[i].get("description")
-    
-    #if (title is None) or (description is None):
-    #    speech = "Hmm! Looks like we could not fetch the news"
-   # else:
-    speech = "Title: " + title + " description: " + descrip
-	
-    # print(json.dumps(item, indent=4))
-
-##    print("speech=")
-##    print(speech)
-##    print("---------------")
-##    print(createResponse(speech, speech))
-##    print("------XXXX-----")
-
-    return createResponse(speech, speech)
-
-def createResponse(speech, displayText):
-##    print("Response:")
-##    print (speech)
-    return {
-        "speech": speech,
-        "displayText": displayText
-        # "data": data,
-        # "contextOut": [],
-        #"source": "apiai-news-org"
-        }
-
-if __name__ == '__main__':
-    port = int(os.getenv('PORT', 5000))
-
-    print("Starting app on port %d" % port)
-
-    app.run(debug=True, port=port, host='0.0.0.0')
+ def processRequest(req):
+-    if req.get("result").get("action") != "newslive":
++    if req.get("result").get("action") != "news.search":
+         speech = "Invalid Action specified"
+         return createResponse(speech, speech)
+-
+-    
+     yql_url = "https://newsapi.org/v1/articles?source=cnn&apiKey=6614fb3731b2472c9efa015800e01de3"
+-    
+     result = urlopen(yql_url).read()
+     data = json.loads(result)
++    #return {
++#	"speech":data.get("status"),
++#	"displayText":data.get("source")
++ #   	}
+     res = makeWebhookResult(data)
+     return res
+ 
+ 
+ 
+ 
+ def makeWebhookResult(data):
+-    query = data.get('status')
++    query = data.get("articles")
+     if query is None:
+         speech = "query element missing from news's response"
+         return createResponse(speech, speech)
+-    else:
+-	speech = "data ok"
+-	return createResponse(speech, speech)
+-	
+-    #title = quote.get(['articles'][0]['title']);
+-    
+-    #description = quote.get(['articles'][0]['description']);
+-    
++    from random import randint
++    i=randint(0,6)
++    title = data.get("articles")[i].get("title")
++    descrip = data.get("articles")[i].get("description")
+     
+     #if (title is None) or (description is None):
+     #    speech = "Hmm! Looks like we could not fetch the news"
+-    #else:
+-     #   speech = "Title: " + title + " description: " + description
++   # else:
++    speech = "Title: " + title + " description: " + descrip
+ 	
+     # print(json.dumps(item, indent=4))
+ 
+@@ -78,17 +75,17 @@ def makeWebhookResult(data):
+ ##    print(createResponse(speech, speech))
+ ##    print("------XXXX-----")
+ 
+-    #return createResponse(speech, speech)
++    return createResponse(speech, speech)
+ 
+ def createResponse(speech, displayText):
+ ##    print("Response:")
+ ##    print (speech)
+     return {
+         "speech": speech,
+-        "displayText": displayText,
++        "displayText": displayText
+         # "data": data,
+         # "contextOut": [],
+-        "source": "apiai-news-org"
++        #"source": "apiai-news-org"
+         }
+ 
+ if __name__ == '__main__':
