@@ -36,7 +36,7 @@ def webhook():
 
 
 def processRequest(req):
-    if req.get("result").get("action") != "news.search":
+    if req.get("result").get("action") != "newslive":
         speech = "Invalid Action specified"
         return createResponse(speech, speech)
     yql_url = "https://newsapi.org/v1/articles?source=cnn&apiKey=6614fb3731b2472c9efa015800e01de3"
