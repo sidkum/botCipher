@@ -36,10 +36,10 @@ def webhook():
 
 
 def processRequest(req):
-    if req.get("result").get("action") != "newslive":
+    if req.get("result").get("action") != "news.search":
         speech = "Invalid Action specified"
         return createResponse(speech, speech)
-    yql_url = "https://newsapi.org/v1/articles?source=the-times-of-india&sortBy=top&apiKey=1a60aa7f22824543ae9f5bd4af4c6b0e"
+    yql_url = "https://newsapi.org/v1/articles?source=cnn&apiKey=6614fb3731b2472c9efa015800e01de3"
     result = urlopen(yql_url).read()
     data = json.loads(result)
     #return {
@@ -61,11 +61,12 @@ def makeWebhookResult(data):
     i=randint(0,6)
     title = data.get("articles")[i].get("title")
     descrip = data.get("articles")[i].get("description")
-    img = data.get("articles")[i].get("urlToImage")
+    newsurl=data.get("articles")[i].get("url")
+    image=data.get("articles")[i].get("urlToImage")
     #if (title is None) or (description is None):
     #    speech = "Hmm! Looks like we could not fetch the news"
    # else:
-    speech = "Title: " + title + " description: " + descrip
+    speech = "Title: " + title +"  "+image+ "\n Description: "+ descrip + "Read In Detail Here: "+newsurl
 	
     # print(json.dumps(item, indent=4))
 
