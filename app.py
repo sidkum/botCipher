@@ -62,7 +62,7 @@ def processRequest(req):
     if req.get("result").get("action") == "telljoke":
        from joke import processRequest
        res=processRequest(req)
-return res
+    return res
 
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
