@@ -84,7 +84,7 @@ def createResponse(speech, displayText,imageUrl):
     return {
 	"speech":speech,
 	"displayText":displayText,
-	"imageUrl":imageUrl
+	"url":imageUrl
         # "data": data,
         # "contextOut": [],
         #"source": "apiai-news-org"
