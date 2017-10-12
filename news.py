@@ -36,7 +36,7 @@ def webhook():
 
 
 def processRequest(req):
-    if req.get("result").get("action") != "newslive":
+    if req.get("result").get("action") != "news.search":
         speech = "Invalid Action specified"
         return createResponse(speech, speech)
     yql_url = "https://newsapi.org/v1/articles?source=cnn&apiKey=6614fb3731b2472c9efa015800e01de3"
@@ -56,18 +56,18 @@ def makeWebhookResult(data):
     query = data.get("articles")
     if query is None:
         speech = "query element missing from news's response"
-        return createResponse(speech, speech)
+        return createResponse(speech, speech,imageUrl)
     from random import randint
     i=randint(0,6)
     title = data.get("articles")[i].get("title")
     descrip = data.get("articles")[i].get("description")
     newsurl=data.get("articles")[i].get("url")
-    image=data.get("articles")[i].get("urlToImage")
+    urltoimage=data.get("articles")[i].get("urlToImage")
     #if (title is None) or (description is None):
     #    speech = "Hmm! Looks like we could not fetch the news"
    # else:
-    speech = "Title: " + title +"  "+image+ "\n Description: "+ descrip + "Read In Detail Here: "+newsurl
-	
+    speech = "\n"+"Title: " + title +"\n\n"+ "Description: " + descrip+"\n\n"+"Read in detail here:"+newsurl
+    
     # print(json.dumps(item, indent=4))
 
 ##    print("speech=")
@@ -76,18 +76,19 @@ def makeWebhookResult(data):
 ##    print(createResponse(speech, speech))
 ##    print("------XXXX-----")
 
-    return createResponse(speech, speech)
+    return createResponse(speech, speech,urltoimage)
 
-def createResponse(speech, displayText):
+def createResponse(speech, displayText,imageUrl):
 ##    print("Response:")
 ##    print (speech)
     return {
-        "speech": speech,
-        "displayText": displayText
+	"speech":speech,
+	"displayText":displayText,
+	"imageUrl":imageUrl
         # "data": data,
         # "contextOut": [],
         #"source": "apiai-news-org"
-        }
+    }
 
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
