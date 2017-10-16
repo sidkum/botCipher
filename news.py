@@ -98,9 +98,7 @@ def createResponse(speech, displayText,data):
              "image_url":urltoimage,
              "default_action": {
               "type": "web_url",
-              "url": newsurl,
-              "messenger_extensions": true,
-              "webview_height_ratio": "tall"
+              "url": newsurl
             }
              }]
       }}
