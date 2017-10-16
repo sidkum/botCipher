@@ -87,7 +87,6 @@ def createResponse(speech, displayText,imageUrl):
 	"url":imageUrl
 	"data":{
 	 "facebook":{
-	  "message":{
 	    "attachment":{
 	      "type":"template",
 	      "payload":{
@@ -121,7 +120,6 @@ def createResponse(speech, displayText,imageUrl):
 	    }
 	  }
 	}
-      }
         # "data": data,
         # "contextOut": [],
         #"source": "apiai-news-org"
