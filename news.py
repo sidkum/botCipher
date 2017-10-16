@@ -95,7 +95,7 @@ def createResponse(speech, displayText,data):
             "elements":[
             {
              "title":title,
-             "image_url":urltoimage,
+             "image_url":urltoimage
 	    # "default_action": {
             # "type": "web_url",
             # "url":newsurl
