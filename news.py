@@ -56,7 +56,7 @@ def makeWebhookResult(data):
     query = data.get("articles")
     if query is None:
         speech = "query element missing from news's response"
-        return createResponse(speech, speech,imageUrl)
+        return createResponse(speech, speech,imageUrl,data)
     from random import randint
     i=randint(0,6)
     title = data.get("articles")[i].get("title")
@@ -76,43 +76,32 @@ def makeWebhookResult(data):
 ##    print(createResponse(speech, speech))
 ##    print("------XXXX-----")
 
-    return createResponse(speech, speech,urltoimage)
+    return createResponse(speech, speech,urltoimage,data)
 
-def createResponse(speech, displayText,imageUrl):
-##    print("Response:")
-##    print (speech)
-    return {
-	"speech":speech,
-	"displayText":displayText,
-	"url":imageUrl
-	"data":{
-	 "facebook":{
-	    "attachment":{
-	      "type":"template",
-	      "payload":{
-		"template_type":"generic",
-		"elements":[
-		   {
-		    "title":"today's news",
-		    "image_url":imageUrl,
-		    "subtitle":"subtitle of news.",
-		    "default_action": {
-		      "type": "web_url",
-		      "url": "https://peterssendreceiveapp.ngrok.io/view?item=103",
-		      "messenger_extensions": true,
-		      "webview_height_ratio": "tall",
-		      "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
-		    }   
-		  }
-		]
-	      }
-	    }
-	  }
-	}
-        # "data": data,
-        # "contextOut": [],
-        #"source": "apiai-news-org"
-    }
+def createResponse(speech, displayText,data):
+    from random import randint
+    i=randint(0,5) 
+    title=data.get("articles")[i].get("title")
+    urltoimage=data.get("articles")[i].get("urlToImage")
+    newsurl=data.get("articles")[i].get("url")
+    return {"speech":speech,
+	    "displayText":displayText,
+	    "data": {
+              "facebook": {
+                "attachment": {
+	       "type":"template",
+            "payload":{
+             "template_type":"generic",
+            "elements":[
+            {
+             "title":title,
+             "image_url":urltoimage#,
+	    # "default_action": {
+            # "type": "web_url",
+            # "url":newsurl
+            #}
+             }]
+      }}}}}
 
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
