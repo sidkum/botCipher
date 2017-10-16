@@ -79,11 +79,11 @@ def makeWebhookResult(data):
     return createResponse(speech, speech,urltoimage,data)
 
 def createResponse(speech, displayText,data):
-    from random import randint
-    i=randint(0,5) 
-    title=data.get("articles")[i].get("title")
-    urltoimage=data.get("articles")[i].get("urlToImage")
-    newsurl=data.get("articles")[i].get("url")
+    #from random import randint
+    #i=randint(0,5) 
+    title = data.get("articles")[i].get("title")
+    urltoimage = data.get("articles")[i].get("urlToImage")
+    newsurl = data.get("articles")[i].get("url")
     return {"speech":speech,
 	    "displayText":displayText,
 	    "data": {
@@ -100,7 +100,7 @@ def createResponse(speech, displayText,data):
             # "type": "web_url",
             # "url":newsurl
             #}
-             }]
+            }]
       }}}}}
 
 if __name__ == '__main__':
