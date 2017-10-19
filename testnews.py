@@ -130,29 +130,8 @@ def createResponse(speech, displayText,data):
           {
             "title": "Read More",
             "type": "postback",
-            "payload": {
-             "template_type":"list",
-	     "top_element_style": "compact",
-             "elements":[ 
-		{
-		"title": article[4].get("title"),
-		"subtitle": article[4].get("description"),
-		"image_url":article[4].get("urlToImage"),          
-		"default_action": {
-		"type": "web_url",
-		"url": article[4].get("url")
-		}
-		},
-		{
-		"title": article[5].get("title"),
-		"subtitle": article[5].get("description"),
-		"image_url":article[5].get("urlToImage"),          
-		"default_action": {
-		"type": "web_url",
-		"url": article[5].get("url")
-		}
-		}]
-          }}
+            "payload": "payload" 
+	  }
         ] 
       }}
 	}}
