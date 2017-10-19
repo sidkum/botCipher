@@ -38,7 +38,7 @@ def webhook():
 def processRequest(req):
     if req.get("result").get("action") != "searchmusic":
         speech = "Invalid Action specified"
-        return createResponse(speech, speech)
+        return createResponse(speech, speech,data)
     yql_url = "http://ws.audioscrobbler.com/2.0/?method=artist.gettoptracks&artist="+req.get("result").get("parameters").get("music-artist")+"&api_key=c68de8a6159c02cd683804aa40debc53&format=json"
     result = urlopen(yql_url).read()
     data = json.loads(result)
@@ -56,7 +56,7 @@ def makeWebhookResult(data):
     query = data.get("toptracks")
     if query is None:
         speech = "query element missing from news's response"
-        return createResponse(speech, speech)
+        return createResponse(speech, speech,data)
     #if (title is None) or (description is None):
     #    speech = "Hmm! Looks like we could not fetch the news"
    # else:
