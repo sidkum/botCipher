@@ -95,10 +95,7 @@ def createResponse(speech, displayText,data):
 	     "default_action": {
               "type": "web_url",
               "url": topsongs[0].get("url"),
-              "messenger_extensions": true,
-              "webview_height_ratio": "tall",
-              "fallback_url": topsongs[0].get("url")
-            },
+             },
 	    "buttons":[
               {
                 "type":"web_url",
