@@ -56,12 +56,15 @@ def processRequest(req):
     if req.get("result").get("action") == "stockquote":
        from stock import processRequest
        res = processRequest(req)
-    if req.get("result").get("action") == "news.search":
-       from news import processRequest
-       res = processRequest(req)
+   # if req.get("result").get("action") == "news.search":
+   #    from news import processRequest
+   #    res = processRequest(req)
     if req.get("result").get("action") == "telljoke":
        from joke import processRequest
        res=processRequest(req)
+    if req.get("result").get("action") == "news.search":
+       from testnews import processRequest
+       res = processRequest(req)
     return res
 
 if __name__ == '__main__':
