@@ -87,118 +87,80 @@ def createResponse(speech, displayText,data):
              "attachment": {
 	    "type":"template",
             "payload":{
-             "template_type":"generic",
+             "template_type":"list",
+	     "top_element_style": "compact",
             "elements":[
             {
              "title": article[0].get("title"),
-            "subtitle": article[0].get("description"),
-            "image_url":article[0].get("urlToImage"),          
-			"default_action": {
-              "type": "web_url",
-              "url": article[0].get("url")
-            },
-            "buttons": [
-              {
-                "title": "View",
-                "type": "web_url",
-                "url": article[0].get("url")
+             "subtitle": article[0].get("description"),
+             "image_url":article[0].get("urlToImage"),          
+	     "default_action": {
+               "type": "web_url",
+               "url": article[0].get("url")
               }
-            ]
-          },
-          {
-             "title": article[1].get("title"),
-            "subtitle": article[1].get("description"),
-            "image_url":article[1].get("urlToImage"),          
-			"default_action": {
-              "type": "web_url",
-              "url": article[1].get("url")
-            },
-            "buttons": [
-              {
-                "title": "View",
-                "type": "web_url",
-                "url": article[1].get("url")
-              }
-            ]
-          },
-          {
+	    },
+	    {
+	     "title": article[1].get("title"),
+	     "subtitle": article[1].get("description"),
+	     "image_url":article[1].get("urlToImage"),          
+	     "default_action": {
+	       "type": "web_url",
+	       "url": article[1].get("url")
+	      }
+	    },
+           {
              "title": article[2].get("title"),
-            "subtitle": article[2].get("description"),
-            "image_url":article[2].get("urlToImage"),          
-			"default_action": {
-              "type": "web_url",
-              "url": article[2].get("url")
-            },
-            "buttons": [
-              {
-                "title": "View",
-                "type": "web_url",
-                "url": article[2].get("url")
-              }
-            ]
-          },
-		  {
+             "subtitle": article[2].get("description"),
+             "image_url":article[2].get("urlToImage"),          
+	     "default_action": {
+               "type": "web_url",
+               "url": article[2].get("url")
+             }
+	   },
+           {
              "title": article[3].get("title"),
-            "subtitle": article[3].get("description"),
-            "image_url":article[3].get("urlToImage"),          
-			"default_action": {
-              "type": "web_url",
-              "url": article[3].get("url")
-            },
-            "buttons": [
-              {
-                "title": "View",
-                "type": "web_url",
-                "url": article[3].get("url")
-              }
-            ]
-          },{
+             "subtitle": article[3].get("description"),
+             "image_url":article[3].get("urlToImage"),          
+	     "default_action": {
+               "type": "web_url",
+               "url": article[3].get("url")
+             }
+	   },
+           {
              "title": article[4].get("title"),
-            "subtitle": article[4].get("description"),
-            "image_url":article[4].get("urlToImage"),          
-			"default_action": {
-              "type": "web_url",
-              "url": article[4].get("url")
-            },
-            "buttons": [
-              {
-                "title": "View",
-                "type": "web_url",
-                "url": article[4].get("url")
-              }
-            ]
-          },{
+             "subtitle": article[4].get("description"),
+             "image_url":article[4].get("urlToImage"),          
+	     "default_action": {
+               "type": "web_url",
+               "url": article[4].get("url")
+             }
+	   },
+           {
              "title": article[5].get("title"),
-            "subtitle": article[5].get("description"),
-            "image_url":article[5].get("urlToImage"),          
-			"default_action": {
-              "type": "web_url",
-              "url": article[5].get("url")
-            },
-            "buttons": [
-              {
-                "title": "View",
-                "type": "web_url",
-                "url": article[5].get("url")
-              }
-            ]
-          },{
+             "subtitle": article[5].get("description"),
+             "image_url":article[5].get("urlToImage"),          
+	     "default_action": {
+               "type": "web_url",
+               "url": article[5].get("url")
+             }
+	   },
+           {
              "title": article[6].get("title"),
-            "subtitle": article[6].get("description"),
-            "image_url":article[6].get("urlToImage"),          
-			"default_action": {
-              "type": "web_url",
-              "url": article[6].get("url")
-            },
-            "buttons": [
-              {
-                "title": "View",
-                "type": "web_url",
-                "url": article[6].get("url")
-              }
-            ]
+             "subtitle": article[6].get("description"),
+             "image_url":article[6].get("urlToImage"),          
+	     "default_action": {
+               "type": "web_url",
+               "url": article[6].get("url")
+             }
+	   }
+	],
+	"buttons": [
+          {
+            "title": "Read More",
+            "type": "postback",
+            "payload": "payload"            
           }
-             ]
+        ] 
       }}
 	}}
      }
