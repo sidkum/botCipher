@@ -90,12 +90,8 @@ def createResponse(speech, displayText,data):
              "elements":[
             {
              "title": data.get("toptracks").get("track")[i].get("name"),
-             "subtitle": topsongs[0].get("url"),
-             "image_url":topsongs[0].get("image")[3].get("#text"),          
-		"default_action": {
-                "type": "web_url",
-                "url": topsongs[0].get("url")
-                }
+             #"subtitle": topsongs[0].get("url"),
+             #"image_url":topsongs[0].get("image")[3].get("#text")      
       	  }]
        }}
      }}
