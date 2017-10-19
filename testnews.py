@@ -126,35 +126,7 @@ def createResponse(speech, displayText,data):
                "url": article[3].get("url")
              }
 	   },
-           {
-             "title": article[4].get("title"),
-             "subtitle": article[4].get("description"),
-             "image_url":article[4].get("urlToImage"),          
-	     "default_action": {
-               "type": "web_url",
-               "url": article[4].get("url")
-             }
-	   },
-           {
-             "title": article[5].get("title"),
-             "subtitle": article[5].get("description"),
-             "image_url":article[5].get("urlToImage"),          
-	     "default_action": {
-               "type": "web_url",
-               "url": article[5].get("url")
-             }
-	   },
-           {
-             "title": article[6].get("title"),
-             "subtitle": article[6].get("description"),
-             "image_url":article[6].get("urlToImage"),          
-	     "default_action": {
-               "type": "web_url",
-               "url": article[6].get("url")
-             }
-	   }
-	],
-	"buttons": [
+      	"buttons": [
           {
             "title": "Read More",
             "type": "postback",
