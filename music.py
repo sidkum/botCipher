@@ -55,7 +55,7 @@ def processRequest(req):
 def makeWebhookResult(data):
     query = data.get("toptracks")
     if query is None:
-        speech = "query element missing from news's response"
+        speech = "query element missing from music response"
         return createResponse(speech, speech,data)
     #if (title is None) or (description is None):
     #    speech = "Hmm! Looks like we could not fetch the news"
@@ -78,24 +78,22 @@ def createResponse(speech, displayText,data):
 ##    print("Response:")
 ##    print (speech)
     topsongs=data.get("toptracks").get("track")
-    return {
-	"speech":speech,
-	"displayText":displayText
-	"data": {
-           "facebook": {
+    return {"speech":speech,
+	    "displayText":displayText,
+	    "data": {
+             "facebook": {
              "attachment": {
-	     "type":"template",
-             "payload":{
+	    "type":"template",
+            "payload":{
              "template_type":"generic",
-             "elements":[
+            "elements":[
             {
-             "title": data.get("toptracks").get("track")[i].get("name"),
-             #"subtitle": topsongs[0].get("url"),
-             #"image_url":topsongs[0].get("image")[3].get("#text")      
-      	  }]
-       }}
-     }}
-   }
+             "title":"hello song",
+             #"image_url":urltoimage
+            }]
+      }}
+	}}
+}
 
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
