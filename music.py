@@ -77,7 +77,7 @@ def makeWebhookResult(data):
 def createResponse(speech, displayText,data):
 ##    print("Response:")
 ##    print (speech)
-    toptracks=data.get("toptracks").get("track")
+    topsongs=data.get("toptracks").get("track")
     return {
 	"speech":speech,
 	"displayText":displayText
@@ -89,114 +89,114 @@ def createResponse(speech, displayText,data):
              "template_type":"generic",
              "elements":[
             {
-             "title": toptracks[0].get("name"),
-             "subtitle": toptracks[0].get("url"),
-             "image_url":toptracks[0].get("image")[3].get("#text"),          
+             "title": topsongs[0].get("name"),
+             "subtitle": topsongs[0].get("url"),
+             "image_url":topsongs[0].get("image")[3].get("#text"),          
 		"default_action": {
                 "type": "web_url",
-                "url": toptracks[0].get("url")
+                "url": topsongs[0].get("url")
                 },
              "buttons": [
               {
                 "title": "View",
                 "type": "web_url",
-                "url": toptracks[0].get("url")
+                "url": topsongs[0].get("url")
               }
              ]
             },
            {
-             "title": toptracks[1].get("name"),
-             "subtitle": toptracks[1].get("url"),
-             "image_url":toptracks[1].get("image")[3].get("#text"),          
+             "title": topsongs[1].get("name"),
+             "subtitle": topsongs[1].get("url"),
+             "image_url":topsongs[1].get("image")[3].get("#text"),          
 		"default_action": {
                 "type": "web_url",
-                "url": toptracks[1].get("url")
+                "url": topsongs[1].get("url")
                 },
              "buttons": [
               {
                 "title": "View",
                 "type": "web_url",
-                "url": toptracks[1].get("url")
+                "url": topsongs[1].get("url")
               }
              ]
             },
           {
-             "title": toptracks[2].get("name"),
-             "subtitle": toptracks[2].get("url"),
-             "image_url":toptracks[2].get("image")[3].get("#text"),          
+             "title": topsongs[2].get("name"),
+             "subtitle": topsongs[2].get("url"),
+             "image_url":topsongs[2].get("image")[3].get("#text"),          
 		"default_action": {
                 "type": "web_url",
-                "url": toptracks[2].get("url")
+                "url": topsongs[2].get("url")
                 },
              "buttons": [
               {
                 "title": "View",
                 "type": "web_url",
-                "url": toptracks[2].get("url")
+                "url": topsongs[2].get("url")
               }
              ]
             },
 		{
-		     "title": toptracks[3].get("name"),
-		     "subtitle": toptracks[3].get("url"),
-		     "image_url":toptracks[3].get("image")[3].get("#text"),          
+		     "title": topsongs[3].get("name"),
+		     "subtitle": topsongs[3].get("url"),
+		     "image_url":topsongs[3].get("image")[3].get("#text"),          
 			"default_action": {
 			"type": "web_url",
-			"url": toptracks[3].get("url")
+			"url": topsongs[3].get("url")
 			},
 		     "buttons": [
 		      {
 			"title": "View",
 			"type": "web_url",
-			"url": toptracks[3].get("url")
+			"url": topsongs[3].get("url")
 		      }
 		     ]
 		    },
 	   {
-             "title": toptracks[4].get("name"),
-             "subtitle": toptracks[4].get("url"),
-             "image_url":toptracks[4].get("image")[3].get("#text"),          
+             "title": topsongs[4].get("name"),
+             "subtitle": topsongs[4].get("url"),
+             "image_url":topsongs[4].get("image")[3].get("#text"),          
 		"default_action": {
                 "type": "web_url",
-                "url": toptracks[4].get("url")
+                "url": topsongs[4].get("url")
                 },
              "buttons": [
               {
                 "title": "View",
                 "type": "web_url",
-                "url": toptracks[4].get("url")
+                "url": topsongs[4].get("url")
               }
              ]
             },
 	  {
-             "title": toptracks[5].get("name"),
-             "subtitle": toptracks[5].get("url"),
-             "image_url":toptracks[5].get("image")[3].get("#text"),          
+             "title": topsongs[5].get("name"),
+             "subtitle": topsongs[5].get("url"),
+             "image_url":topsongs[5].get("image")[3].get("#text"),          
 		"default_action": {
                 "type": "web_url",
-                "url": toptracks[5].get("url")
+                "url": topsongs[5].get("url")
                 },
              "buttons": [
               {
                 "title": "View",
                 "type": "web_url",
-                "url": toptracks[5].get("url")
+                "url": topsongs[5].get("url")
               }
              ]
             },
 	   {
-             "title": toptracks[6].get("name"),
-             "subtitle": toptracks[6].get("url"),
-             "image_url":toptracks[6].get("image")[3].get("#text"),          
+             "title": topsongs[6].get("name"),
+             "subtitle": topsongs[6].get("url"),
+             "image_url":topsongs[6].get("image")[3].get("#text"),          
 		"default_action": {
                 "type": "web_url",
-                "url": toptracks[6].get("url")
+                "url": topsongs[6].get("url")
                 },
              "buttons": [
               {
                 "title": "View",
                 "type": "web_url",
-                "url": toptracks[6].get("url")
+                "url": topsongs[6].get("url")
               }
              ]
             }
