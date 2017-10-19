@@ -58,7 +58,7 @@ def makeWebhookResult(data):
         speech = "query element missing from news's response"
         return createResponse(speech, speech,data)
     from random import randint
-    i=randint(0,6)
+    i=randint(0,3)
     title = data.get("articles")[i].get("title")
     descrip = data.get("articles")[i].get("description")
     newsurl=data.get("articles")[i].get("url")
@@ -125,7 +125,7 @@ def createResponse(speech, displayText,data):
                "type": "web_url",
                "url": article[3].get("url")
              }
-	   },
+	   }],
       	"buttons": [
           {
             "title": "Read More",
