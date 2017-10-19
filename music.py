@@ -90,7 +90,7 @@ def createResponse(speech, displayText,data):
             "elements":[
             {
              "title":"Welcome to Peter\'s Hats",
-             "image_url":"https://lastfm-img2.akamaized.net/i/u/300x300/f684afedf6e81a941d8d403c5f5c20be.png",
+             "image_url":topsongs[0].get("image")[3].get("#text"),
              "subtitle":"We\'ve got the right hat for everyone."
             }]
       }}
