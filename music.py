@@ -89,7 +89,7 @@ def createResponse(speech, displayText,data):
              "template_type":"generic",
              "elements":[
             {
-             "title": topsongs[0].get("name"),
+             "title": data.get("toptracks").get("track")[i].get("name"),
              "subtitle": topsongs[0].get("url"),
              "image_url":topsongs[0].get("image")[3].get("#text"),          
 		"default_action": {
@@ -103,7 +103,8 @@ def createResponse(speech, displayText,data):
                 "url": topsongs[0].get("url")
               }
              ]
-      }}
+      	  }]
+       }}
      }}
 	#"imageUrl":imageUrl
         # "data": data,
