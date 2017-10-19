@@ -95,21 +95,10 @@ def createResponse(speech, displayText,data):
 		"default_action": {
                 "type": "web_url",
                 "url": topsongs[0].get("url")
-                },
-             "buttons": [
-              {
-                "title": "View",
-                "type": "web_url",
-                "url": topsongs[0].get("url")
-              }
-             ]
+                }
       	  }]
        }}
      }}
-	#"imageUrl":imageUrl
-        # "data": data,
-        # "contextOut": [],
-        #"source": "apiai-news-org"
    }
 
 if __name__ == '__main__':
