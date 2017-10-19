@@ -88,8 +88,9 @@ def createResponse(speech, displayText,data):
              "template_type":"generic",
             "elements":[
             {
-             "title":"hello song",
-             #"image_url":urltoimage
+             "title":"Welcome to Peter\'s Hats",
+             "image_url":"https://lastfm-img2.akamaized.net/i/u/300x300/f684afedf6e81a941d8d403c5f5c20be.png",
+             "subtitle":"We\'ve got the right hat for everyone."
             }]
       }}
 	}}
