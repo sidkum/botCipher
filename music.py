@@ -89,13 +89,28 @@ def createResponse(speech, displayText,data):
              "template_type":"generic",
             "elements":[
             {
-             "title":"Welcome to Peter\'s Hats",
+             "title":topsongs[0].get("name"),
              "image_url":topsongs[0].get("image")[3].get("#text"),
-             "subtitle":"We\'ve got the right hat for everyone."
-            }]
+             "subtitle":"views:"+topsongs[0].get("playcount"),
+	     "default_action": {
+              "type": "web_url",
+              "url": topsongs[0].get("url"),
+              "messenger_extensions": true,
+              "webview_height_ratio": "tall",
+              "fallback_url": topsongs[0].get("url")
+            },
+	    "buttons":[
+              {
+                "type":"web_url",
+                "url":topsongs[0].get("url"),
+                "title":"View"
+              }
+	    ]
+           }
+	  ]
+        }}
       }}
-	}}
-}
+   }
 
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
