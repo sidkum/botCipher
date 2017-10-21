@@ -36,7 +36,7 @@ def webhook():
 
 
 def processRequest(req):
-    if req.get("result").get("action") != "search.album":
+    if req.get("result").get("action") != "searchmusic":
         speech = "Invalid Action specified"
         return createResponse(speech, speech,data)
     yql_url = "http://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=c68de8a6159c02cd683804aa40debc53&artist=adele&album=19&format=json"
@@ -46,32 +46,43 @@ def processRequest(req):
 #	"speech":data.get("status"),
 #	"displayText":data.get("source")
  #   	}
-    res = makeWebhookResult(data,yql_url)
+    res = makeWebhookResult(data)
     return res
 
 
 
 
-def makeWebhookResult(data,msurl):
-    #query = data.get("album")
-    #if query is None:
-        #speech = "query element missing from music album response"
-        #return createResponse(speech, speech,data)
-    #speech=data.get("album").get("tracks").get("track")[0].get("name")
-     speech = msurl
-   # for i in range(0,9):
-    #    songname=data.get("album").get("tracks").get("track")[i].get("name")
-    #    speech=speech+songname+"\n"
+def makeWebhookResult(data):
+    query = data.get("toptracks")
+    if query is None:
+        speech = "query element missing from music response"
+        return createResponse(speech, speech,data)
+    #if (title is None) or (description is None):
+    #    speech = "Hmm! Looks like we could not fetch the news"
+   # else:
+    #speech=" "
+    speech=data.get("album").get("tracks").get("track")[0].get("name")
+    #for i in range(0,9):
+        #songname=data.get("toptracks").get("track")[i].get("name")
+        #speech=speech+songname+"\n"
+    # print(json.dumps(item, indent=4))
+
+##    print("speech=")
+##    print(speech)
+##    print("---------------")
+##    print(createResponse(speech, speech))
+##    print("------XXXX-----")
+
     return createResponse(speech, speech,data)
 
 def createResponse(speech, displayText,data):
 ##    print("Response:")
 ##    print (speech)
-    #songs=data.get("album").get("tracks").get("track"),
-    #img=data.get("album").get("image")[4].get("#text")
+    #topsongs=data.get("toptracks").get("track")
     return {"speech":speech,
 	    "displayText":displayText,
-	   }
+	    
+   }
 
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
