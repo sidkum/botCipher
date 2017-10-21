@@ -70,6 +70,9 @@ def processRequest(req):
        res = processRequest(req) 
     if req.get("result").get("action") == "searchmusic":
        from music import processRequest
+       res = processRequest(req)
+    if req.get("result").get("action") == "search.album":
+       from musicalbum import processRequest
        res = processRequest(req) 
     return res
 
