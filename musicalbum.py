@@ -46,18 +46,19 @@ def processRequest(req):
 #	"speech":data.get("status"),
 #	"displayText":data.get("source")
  #   	}
-    res = makeWebhookResult(data)
+    res = makeWebhookResult(data,yql_url)
     return res
 
 
 
 
-def makeWebhookResult(data):
-    query = data.get("album")
-    if query is None:
-        speech = "query element missing from music album response"
-        return createResponse(speech, speech,data)
-    speech=data.get("album").get("tracks").get("track")[0].get("name")
+def makeWebhookResult(data,msurl):
+    #query = data.get("album")
+    #if query is None:
+        #speech = "query element missing from music album response"
+        #return createResponse(speech, speech,data)
+    #speech=data.get("album").get("tracks").get("track")[0].get("name")
+     speech = msurl
    # for i in range(0,9):
     #    songname=data.get("album").get("tracks").get("track")[i].get("name")
     #    speech=speech+songname+"\n"
