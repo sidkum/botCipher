@@ -57,10 +57,10 @@ def makeWebhookResult(data):
     if query is None:
         speech = "query element missing from music album response"
         return createResponse(speech, speech,data)
-    #speech=data.get("toptracks").get("track")[0].get("image")[3].get("#text")
-    for i in range(0,9):
-        songname=data.get("album").get("tracks").get("track")[i].get("name")
-        speech=speech+songname+"\n"
+    speech=data.get("album").get("tracks").get("track")[0].get("name")
+   # for i in range(0,9):
+    #    songname=data.get("album").get("tracks").get("track")[i].get("name")
+    #    speech=speech+songname+"\n"
     # print(json.dumps(item, indent=4))
 
 ##    print("speech=")
