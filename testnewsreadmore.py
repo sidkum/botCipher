@@ -117,7 +117,7 @@ def createResponse(speech, displayText,data):
                "url": article[6].get("url")
              }
 	   }
-	   }]   	
+	  ]   	
       }}
 	}}
      }
