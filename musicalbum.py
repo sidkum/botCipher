@@ -53,18 +53,14 @@ def processRequest(req):
 
 
 def makeWebhookResult(data):
-    query = data.get("toptracks")
+    query = data.get("album")
     if query is None:
-        speech = "query element missing from music response"
+        speech = "query element missing from music album response"
         return createResponse(speech, speech,data)
-    #if (title is None) or (description is None):
-    #    speech = "Hmm! Looks like we could not fetch the news"
-   # else:
-    #speech=" "
-    speech=data.get("toptracks").get("track")[0].get("image")[3].get("#text")
-    #for i in range(0,9):
-        #songname=data.get("toptracks").get("track")[i].get("name")
-        #speech=speech+songname+"\n"
+    #speech=data.get("toptracks").get("track")[0].get("image")[3].get("#text")
+    for i in range(0,9):
+        songname=data.get("album").get("tracks").get("track")[i].get("name")
+        speech=speech+songname+"\n"
     # print(json.dumps(item, indent=4))
 
 ##    print("speech=")
@@ -78,7 +74,8 @@ def makeWebhookResult(data):
 def createResponse(speech, displayText,data):
 ##    print("Response:")
 ##    print (speech)
-    topsongs=data.get("toptracks").get("track")
+    songs=data.get("album").get("tracks").get("track"),
+    img=data.get("album").get("image")[4].get("#text")
     return {"speech":speech,
 	    "displayText":displayText,
 	    "data": {
@@ -89,17 +86,17 @@ def createResponse(speech, displayText,data):
              "template_type":"generic",
             "elements":[
             {
-             "title":topsongs[0].get("name"),
-             "image_url":topsongs[0].get("image")[3].get("#text"),
-             "subtitle":"views:"+topsongs[0].get("playcount"),
+             "title":songs[0].get("name"),
+             "image_url":img,
+             "subtitle":"Artist:"+songs[0].get("artist").get("name)+" Album:"+data.get("album").get("name)+" Duration:"+songs[0].get("duration")+"seconds",
 	     "default_action": {
               "type": "web_url",
-              "url": topsongs[0].get("url"),
+              "url": songs[0].get("url")
              },
 	    "buttons":[
               {
                 "type":"web_url",
-                "url":topsongs[0].get("url"),
+                "url":songs[0].get("url")
                 "title":"View"
               }
 	    ]
