@@ -130,7 +130,7 @@ def createResponse(speech, displayText,data):
           {
             "title": "Read More",
             "type": "postback",
-            "payload": "payload" 
+            "payload": "read more" 
 	  }
         ] 
       }}
