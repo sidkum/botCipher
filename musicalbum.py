@@ -36,7 +36,7 @@ def webhook():
 
 
 def processRequest(req):
-    if req.get("result").get("action") != "searchmusic":
+    if req.get("result").get("action") != "search.album":
         speech = "Invalid Action specified"
         return createResponse(speech, speech,data)
     yql_url = "http://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=c68de8a6159c02cd683804aa40debc53&artist=adele&album=19&format=json"
@@ -53,7 +53,7 @@ def processRequest(req):
 
 
 def makeWebhookResult(data):
-    query = data.get("toptracks")
+    query = data.get("album")
     if query is None:
         speech = "query element missing from music response"
         return createResponse(speech, speech,data)
