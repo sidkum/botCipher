@@ -65,6 +65,9 @@ def processRequest(req):
     if req.get("result").get("action") == "testnews.search":
        from testnews import processRequest
        res = processRequest(req)
+    if req.get("result").get("action") == "test_intent.test_intent-custom":
+       from testnewsreadmore import processRequest
+       res = processRequest(req) 
     if req.get("result").get("action") == "searchmusic":
        from music import processRequest
        res = processRequest(req) 
