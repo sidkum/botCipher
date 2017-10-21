@@ -61,50 +61,16 @@ def makeWebhookResult(data):
    # for i in range(0,9):
     #    songname=data.get("album").get("tracks").get("track")[i].get("name")
     #    speech=speech+songname+"\n"
-    # print(json.dumps(item, indent=4))
-
-##    print("speech=")
-##    print(speech)
-##    print("---------------")
-##    print(createResponse(speech, speech))
-##    print("------XXXX-----")
-
     return createResponse(speech, speech,data)
 
 def createResponse(speech, displayText,data):
 ##    print("Response:")
 ##    print (speech)
-    songs=data.get("album").get("tracks").get("track"),
-    img=data.get("album").get("image")[4].get("#text")
+    #songs=data.get("album").get("tracks").get("track"),
+    #img=data.get("album").get("image")[4].get("#text")
     return {"speech":speech,
 	    "displayText":displayText,
-	    "data": {
-             "facebook": {
-             "attachment": {
-	    "type":"template",
-            "payload":{
-             "template_type":"generic",
-            "elements":[
-            {
-             "title":songs[0].get("name"),
-             "image_url":img,
-             "subtitle":"Artist:"+songs[0].get("artist").get("name)+" Album:"+data.get("album").get("name)+" Duration:"+songs[0].get("duration")+"seconds",
-	     "default_action": {
-              "type": "web_url",
-              "url": songs[0].get("url")
-             },
-	    "buttons":[
-              {
-                "type":"web_url",
-                "url":songs[0].get("url")
-                "title":"View"
-              }
-	    ]
-           }
-	  ]
-        }}
-      }}
-   }
+	   }
 
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
