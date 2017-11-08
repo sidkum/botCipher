@@ -47,7 +47,8 @@ def giveResult(request):
         print("\nJSON Response:\n")
         data =json.dumps(json.loads(result), indent=4)
         res = createResponse(data)
-        return res
+	return {speech:"hi",displayText:"hi"}
+        #return res
     else:
         print("Invalid Bing Search API subscription key!")
         print("Please paste yours into the source code.")
@@ -70,7 +71,7 @@ def BingWebSearch(search):
    
 def createResponse(data):
     val=data.get("webPages").get("value")
-    return {"name":"see this on messenger",
+    return {"speech":"see this on messenger",
 	    "displayText":"see this on messenger",
 	    "data": {
              "facebook": {
