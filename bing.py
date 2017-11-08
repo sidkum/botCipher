@@ -28,7 +28,7 @@ def webhook():
     #print("Request:")
     #print(json.dumps(req, indent=4))
 
-    res = processRequest(req)
+    res = BingWebSearch(req)
 
     res = json.dumps(res, indent=4)
     # print(res)
