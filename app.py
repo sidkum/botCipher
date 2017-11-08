@@ -74,7 +74,7 @@ def processRequest(req):
     if req.get("result").get("action") == "search.album":
        from musicalbum import processRequest
        res = processRequest(req)
-    else
+    else:
        from bing import giveResult
        res = giveResult(req)
     return res
