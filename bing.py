@@ -1,6 +1,21 @@
 # -*- coding: utf-8 -*-
 
 #!/usr/bin/env python
+# **********************************************
+# *** Update or verify the following values. ***
+# **********************************************
+
+# Replace the subscriptionKey string value with your valid subscription key.
+subscriptionKey = "2f22ecfd9fa54027ba5976df791e98a7"
+
+# Verify the endpoint URI.  At this writing, only one endpoint is used for Bing
+# search APIs.  In the future, regional endpoints may be available.  If you
+# encounter unexpected authorization errors, double-check this value against
+# the endpoint for your Bing Web search instance in your Azure dashboard.
+host = "api.cognitive.microsoft.com"
+path = "/bing/v7.0/search"
+
+term = "iphoneX"
 
 from __future__ import print_function
 from future.standard_library import install_aliases
@@ -22,7 +37,8 @@ import http.client, urllib.parse, json
 app = Flask(__name__)
  
 @app.route('/webhook', methods=['POST'])
-def webhook():
+
+def giveResult():
     req = request.get_json(silent=True, force=True)
     if len(subscriptionKey) == 32:
         print('Searching the Web for: ', term)
@@ -32,27 +48,12 @@ def webhook():
         print("\nJSON Response:\n")
         data =json.dumps(json.loads(result), indent=4)
         res = createResponse(data)
-        r.headers['Content-Type'] = 'application/json'
-        return r
+        return res
     else:
         print("Invalid Bing Search API subscription key!")
         print("Please paste yours into the source code.")
 
-# **********************************************
-# *** Update or verify the following values. ***
-# **********************************************
 
-# Replace the subscriptionKey string value with your valid subscription key.
-subscriptionKey = "2f22ecfd9fa54027ba5976df791e98a7"
-
-# Verify the endpoint URI.  At this writing, only one endpoint is used for Bing
-# search APIs.  In the future, regional endpoints may be available.  If you
-# encounter unexpected authorization errors, double-check this value against
-# the endpoint for your Bing Web search instance in your Azure dashboard.
-host = "api.cognitive.microsoft.com"
-path = "/bing/v7.0/search"
-
-term = "iphoneX"
 
 def BingWebSearch(search):
     "Performs a Bing Web search and returns the results."
