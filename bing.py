@@ -69,7 +69,7 @@ def BingWebSearch(search):
     return headers, response.read().decode("utf8")
    
 def createResponse(data):
-    val=data.get("value")
+    val=data.get("webPages").get("value")
     return {"name":"see this on messenger",
 	    "displayText":"see this on messenger",
 	    "data": {
