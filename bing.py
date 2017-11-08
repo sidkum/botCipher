@@ -38,10 +38,9 @@ app = Flask(__name__)
  
 @app.route('/webhook', methods=['POST'])
 
-def giveResult():
-    req = request.get_json(silent=True, force=True)
+def giveResult(request):
     if len(subscriptionKey) == 32:
-        print('Searching the Web for: ', term)
+        print('Searching the Web for: ', "iphoneX")
         headers, result = BingWebSearch(term)
         print("\nRelevant HTTP Headers:\n")
         print("\n".join(headers))
