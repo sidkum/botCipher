@@ -75,8 +75,8 @@ def processRequest(req):
        from musicalbum import processRequest
        res = processRequest(req)
     else
-        from bing import giveResult
-        res=giveResult(req)
+       from bing import giveResult
+       res = giveResult(req)
     return res
 
 if __name__ == '__main__':
