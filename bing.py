@@ -20,21 +20,23 @@ import http.client, urllib.parse, json
 
 # Flask app should start in global layout
 app = Flask(__name__)
-
+ 
 @app.route('/webhook', methods=['POST'])
 def webhook():
     req = request.get_json(silent=True, force=True)
-
-    #print("Request:")
-    #print(json.dumps(req, indent=4))
-
-    res = BingWebSearch(req)
-
-    res = json.dumps(res, indent=4)
-    # print(res)
-    r = make_response(res)
-    r.headers['Content-Type'] = 'application/json'
-return r
+    if len(subscriptionKey) == 32:
+        print('Searching the Web for: ', term)
+        headers, result = BingWebSearch(term)
+        print("\nRelevant HTTP Headers:\n")
+        print("\n".join(headers))
+        print("\nJSON Response:\n")
+        data =json.dumps(json.loads(result), indent=4)
+        res = createResponse(data)
+        r.headers['Content-Type'] = 'application/json'
+        return r
+    else:
+        print("Invalid Bing Search API subscription key!")
+        print("Please paste yours into the source code.")
 
 # **********************************************
 # *** Update or verify the following values. ***
@@ -50,7 +52,7 @@ subscriptionKey = "2f22ecfd9fa54027ba5976df791e98a7"
 host = "api.cognitive.microsoft.com"
 path = "/bing/v7.0/search"
 
-term = "Microsoft Cognitive Services"
+term = "iphoneX"
 
 def BingWebSearch(search):
     "Performs a Bing Web search and returns the results."
@@ -65,18 +67,66 @@ def BingWebSearch(search):
     headers = [k + ": " + v for (k, v) in response.getheaders()
                    if k.startswith("BingAPIs-") or k.startswith("X-MSEdge-")]
     return headers, response.read().decode("utf8")
-
-if len(subscriptionKey) == 32:
-
-    print('Searching the Web for: ', term)
-
-    headers, result = BingWebSearch(term)
-    print("\nRelevant HTTP Headers:\n")
-    print("\n".join(headers))
-    print("\nJSON Response:\n")
-    print(json.dumps(json.loads(result), indent=4))
-
-else:
-
-    print("Invalid Bing Search API subscription key!")
-    print("Please paste yours into the source code.")
+   
+def createResponse(data):
+    val=data.get("value")
+    return {"name":"see this on messenger",
+	    "displayText":"see this on messenger",
+	    "data": {
+             "facebook": {
+             "attachment": {
+	    "type":"template",
+            "payload":{
+             "template_type":"list",
+	     "top_element_style": "compact",
+            "elements":[
+            {
+             "title": val[0].get("name"),
+             "subtitle": val[0].get("snippet"),
+             "image_url":"",          
+	     "default_action": {
+               "type": "web_url",
+               "url": val[0].get("url")
+              }
+	    },
+	     {
+             "title": val[1].get("name"),
+             "subtitle": val[1].get("snippet"),
+             "image_url":"",          
+	     "default_action": {
+               "type": "web_url",
+               "url": val[1].get("url")
+              }
+	    },
+            {
+             "title": val[2].get("name"),
+             "subtitle": val[2].get("snippet"),
+             "image_url":"",          
+	     "default_action": {
+               "type": "web_url",
+               "url": val[2].get("url")
+              }
+	    },
+            {
+             "title": val[3].get("name"),
+             "subtitle": val[3].get("snippet"),
+             "image_url":"",          
+	     "default_action": {
+               "type": "web_url",
+               "url": val[3].get("url")
+              }
+	    }],
+      	"buttons": [
+          {
+            "title": "Read More",
+            "type": "postback",
+            "payload": "read more" 
+	  }
+        ] 
+      }}
+	}}
+}
+if __name__ == '__main__':
+   port = int(os.getenv('PORT', 5000))
+   print("Starting app on port %d" % port)
+   app.run(debug=True, port=port, host='0.0.0.0')
