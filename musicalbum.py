@@ -81,7 +81,21 @@ def createResponse(speech, displayText,data):
  #   topsongs=data.get("album").get("tracks").get("track")[0].get("name")
     return {"speech":speech,
 	    "displayText":displayText,
-	    
+	    "data": {
+		"facebook": {
+		"attachment": {
+			"type":"template",
+			"payload":{
+				"template_type":"generic",
+				"elements":[
+					{
+						"title":"hell man"
+					}
+				]
+			}
+		}
+		}
+	    }
    }
 
 if __name__ == '__main__':
