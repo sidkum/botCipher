@@ -95,7 +95,7 @@ def createResponse(speech, displayText,data):
              "image_url":data.get("album").get("image")[5].get("#text"),          
 	     "default_action": {
                "type": "web_url",
-               "url": data.get("album").get("url")
+               "url": data.get("album").get("url"),
               }
 	    }]
       }}
