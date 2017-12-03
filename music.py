@@ -120,6 +120,38 @@ def createResponse(speech, displayText,data):
                 "title":"View"
               }
 	    ]
+           },
+		{
+             "title":topsongs[2].get("name"),
+             "image_url":topsongs[2].get("image")[3].get("#text"),
+             "subtitle":"views:"+topsongs[2].get("playcount"),
+	     "default_action": {
+              "type": "web_url",
+              "url": topsongs[2].get("url"),
+             },
+	    "buttons":[
+              {
+                "type":"web_url",
+                "url":topsongs[2].get("url"),
+                "title":"View"
+              }
+	    ]
+           },
+		{
+             "title":topsongs[3].get("name"),
+             "image_url":topsongs[3].get("image")[3].get("#text"),
+             "subtitle":"views:"+topsongs[3].get("playcount"),
+	     "default_action": {
+              "type": "web_url",
+              "url": topsongs[3].get("url"),
+             },
+	    "buttons":[
+              {
+                "type":"web_url",
+                "url":topsongs[3].get("url"),
+                "title":"View"
+              }
+	    ]
            }
 	  ]
         }}
