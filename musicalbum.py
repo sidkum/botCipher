@@ -92,7 +92,7 @@ def createResponse(speech, displayText,data):
                 {
                   "title": "Rolling in the Deep",
                   "image_url": data.get("album").get("image")[5].get("#text"),
-                  "subtitle": topsongs[0].get("name"),
+                  "subtitle": "views:",
                   "default_action": {
                     "type": "web_url",
                     "url": "https://www.last.fm/music/Adele/_/Rolling+in+the+Deep"
