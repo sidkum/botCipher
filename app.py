@@ -63,10 +63,10 @@ def processRequest(req):
        from joke import processRequest
        res=processRequest(req)
     if req.get("result").get("action") == "testnews.search":
-       from testnews import processRequest
+       from listnews import processRequest
        res = processRequest(req)
     if req.get("result").get("action") == "test_intent.test_intent-custom":
-       from testnewsreadmore import processRequest
+       from listnewsreadmore import processRequest
        res = processRequest(req) 
     if req.get("result").get("action") == "searchmusic":
        from music import processRequest
