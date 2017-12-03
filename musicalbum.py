@@ -90,25 +90,19 @@ def createResponse(speech, displayText,data):
               "template_type": "generic",
               "elements": [
                 {
-                  "title": "Album Tracks: " + data.get("album").get("tracks").get("track")[0].get("name")+
-			data.get("album").get("tracks").get("track")[1].get("name")+
-			data.get("album").get("tracks").get("track")[2].get("name")+
-			data.get("album").get("tracks").get("track")[3].get("name")+
-			data.get("album").get("tracks").get("track")[4].get("name")+
-			data.get("album").get("tracks").get("track")[5].get("name")+
-			data.get("album").get("tracks").get("track")[6].get("name")+
-			data.get("album").get("tracks").get("track")[7].get("name"),
+                  "title": "Album: " + data.get("album").get("name")+" Artist: " +
+			data.get("album").get("artist"),
                   "image_url": data.get("album").get("image")[5].get("#text"),
-                  "subtitle": "views:" + data.get("album").get("tracks").get("track")[0].get("name"),
+                  "subtitle": data.get("album").get("wiki").get("summary"),
                   "default_action": {
                     "type": "web_url",
-                    "url": "https://www.last.fm/music/Adele/_/Rolling+in+the+Deep"
+                    "url": data.get("album").get("url")
                   },
                   "buttons": [
                     {
                       "type": "web_url",
-                      "url": "https://www.last.fm/music/Adele/_/Rolling+in+the+Deep",
-                      "title": "View"
+                      "url": data.get("album").get("url"),
+                      "title": "Album Details"
                     }
                   ]
                 }
