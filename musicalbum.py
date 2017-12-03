@@ -83,20 +83,33 @@ def createResponse(speech, displayText,data):
          return {"speech":speech,
  	    "displayText":displayText,
 	    "data": {
-		"facebook": {
-		"attachment": {
-			"type":"template",
-			"payload":{
-				"template_type":"generic",
-				"elements":[
-					{
-						"title":"hell man"
-					}
-				]
-			}
-		}
-		}
-	    }
+        "facebook": {
+          "attachment": {
+            "type": "template",
+            "payload": {
+              "template_type": "generic",
+              "elements": [
+                {
+                  "title": "Rolling in the Deep",
+                  "image_url": "https://lastfm-img2.akamaized.net/i/u/300x300/c8cfa0a250a26a361f26fed40b5aec45.png",
+                  "subtitle": "views:12505022",
+                  "default_action": {
+                    "type": "web_url",
+                    "url": "https://www.last.fm/music/Adele/_/Rolling+in+the+Deep"
+                  },
+                  "buttons": [
+                    {
+                      "type": "web_url",
+                      "url": "https://www.last.fm/music/Adele/_/Rolling+in+the+Deep",
+                      "title": "View"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      }
     }
 
 if __name__ == '__main__':
