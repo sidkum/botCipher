@@ -87,7 +87,8 @@ def createResponse(speech, displayText,data):
           "attachment": {
             "type": "template",
             "payload": {
-              "template_type": "generic",
+              "template_type": "list",
+	      "top_element_style": "large",
               "elements": [
                 {
                   "title": "Album : " + data.get("album").get("name")+"    Artist : " +
@@ -105,6 +106,54 @@ def createResponse(speech, displayText,data):
                       "type": "web_url",
                       "url": data.get("album").get("url"),
                       "title": "Album Details"
+                    }
+                  ]
+                },
+		      {
+                  "title": data.get("album").get("tracks").get("track")[0].get("name")
+                  "image_url": data.get("album").get("image")[5].get("#text"),
+                  "subtitle": "duration: "+data.get("album").get("tracks").get("track")[0].get("duration")+" seconds",
+                  "default_action": {
+                    "type": "web_url",
+                    "url": data.get("album").get("tracks").get("track")[0].get("url")
+                  },
+                  "buttons": [
+                    {
+                      "type": "web_url",
+                      "url": data.get("album").get("tracks").get("track")[0].get("url"),
+                      "title": "Song details"
+                    }
+                  ]
+                },
+		      {
+                  "title": data.get("album").get("tracks").get("track")[1].get("name")
+                  "image_url": data.get("album").get("image")[5].get("#text"),
+                  "subtitle": "duration: "+data.get("album").get("tracks").get("track")[1].get("duration")+" seconds",
+                  "default_action": {
+                    "type": "web_url",
+                    "url": data.get("album").get("tracks").get("track")[1].get("url")
+                  },
+                  "buttons": [
+                    {
+                      "type": "web_url",
+                      "url": data.get("album").get("tracks").get("track")[1].get("url"),
+                      "title": "Song details"
+                    }
+                  ]
+                },
+		      {
+                  "title": data.get("album").get("tracks").get("track")[2].get("name")
+                  "image_url": data.get("album").get("image")[5].get("#text"),
+                  "subtitle": "duration: "+data.get("album").get("tracks").get("track")[2].get("duration")+" seconds",
+                  "default_action": {
+                    "type": "web_url",
+                    "url": data.get("album").get("tracks").get("track")[2].get("url")
+                  },
+                  "buttons": [
+                    {
+                      "type": "web_url",
+                      "url": data.get("album").get("tracks").get("track")[2].get("url"),
+                      "title": "Song details"
                     }
                   ]
                 }
