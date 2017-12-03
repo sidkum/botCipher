@@ -90,7 +90,7 @@ def createResponse(speech, displayText,data):
               "template_type": "generic",
               "elements": [
                 {
-                  "title": "Rolling in the Deep",
+                  "title": "Album Tracks \n" + data.get("album").get("tracks").get("track")[0].get("name"),
                   "image_url": data.get("album").get("image")[5].get("#text"),
                   "subtitle": "views:" + data.get("album").get("tracks").get("track")[0].get("name"),
                   "default_action": {
