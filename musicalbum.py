@@ -154,7 +154,14 @@ def createResponse(speech, displayText,data):
                     }
                   ]
                 }
-              ]
+              ],
+		"buttons": [
+          	{
+            	"title": "Read More",
+           	 "type": "postback",
+            	"payload": "viem more" 
+	  	}
+		]     
             }
           }
         }
