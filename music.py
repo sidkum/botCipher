@@ -103,6 +103,22 @@ def createResponse(speech, displayText,data):
                 "title":"View"
               }
 	    ]
+           },
+		    {
+             "title":topsongs[1].get("name"),
+             "image_url":topsongs[1].get("image")[3].get("#text"),
+             "subtitle":"views:"+topsongs[1].get("playcount"),
+	     "default_action": {
+              "type": "web_url",
+              "url": topsongs[1].get("url"),
+             },
+	    "buttons":[
+              {
+                "type":"web_url",
+                "url":topsongs[1].get("url"),
+                "title":"View"
+              }
+	    ]
            }
 	  ]
         }}
