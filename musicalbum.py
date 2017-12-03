@@ -61,7 +61,8 @@ def makeWebhookResult(data):
     #    speech = "Hmm! Looks like we could not fetch the news"
    # else:
     #speech=" "
-    speech=data.get("album").get("tracks").get("track")[0].get("name")
+   # speech=data.get("album").get("tracks").get("track")[0].get("name")
+    speech=data.get("album").get("image")[5].get("#text")
     #for i in range(0,9):
         #songname=data.get("toptracks").get("track")[i].get("name")
         #speech=speech+songname+"\n"
