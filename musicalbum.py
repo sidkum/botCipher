@@ -91,7 +91,7 @@ def createResponse(speech, displayText,data):
               "elements": [
                 {
                   "title": "Rolling in the Deep",
-                  "image_url": speech,
+                  "image_url": data.get("album").get("image")[5].get("#text"),
                   "subtitle": "views:12505022",
                   "default_action": {
                     "type": "web_url",
