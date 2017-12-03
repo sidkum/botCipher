@@ -91,7 +91,7 @@ def createResponse(speech, displayText,data):
               "elements": [
                 {
                   "title": "Rolling in the Deep",
-                  "image_url": "https://lastfm-img2.akamaized.net/i/u/300x300/c8cfa0a250a26a361f26fed40b5aec45.png",
+                  "image_url": speech,
                   "subtitle": "views:12505022",
                   "default_action": {
                     "type": "web_url",
