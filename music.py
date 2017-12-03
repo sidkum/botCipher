@@ -86,7 +86,8 @@ def createResponse(speech, displayText,data):
              "attachment": {
 	    "type":"template",
             "payload":{
-             "template_type":"generic",
+             "template_type":"list",
+	     "top_element_style": "large",
             "elements":[
             {
              "title":topsongs[0].get("name"),
