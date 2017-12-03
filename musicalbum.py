@@ -88,72 +88,69 @@ def createResponse(speech, displayText,data):
             "type": "template",
             "payload": {
               "template_type": "list",
-	      "top_element_style": "large",
+              "top_element_style": "large",
               "elements": [
                 {
-                  "title": "Album : " + data.get("album").get("name")+"    Artist : " +
-			data.get("album").get("artist")+ "    Listeners : "+
-			data.get("album").get("listeners")+"    Playcount:"+
-			data.get("album").get("playcount"),
-                  "image_url": data.get("album").get("image")[5].get("#text"),
-                  "subtitle": data.get("album").get("wiki").get("summary"),
+                  "title": "Rolling in the Deep",
+                  "image_url": "https://lastfm-img2.akamaized.net/i/u/300x300/c8cfa0a250a26a361f26fed40b5aec45.png",
+                  "subtitle": "views:12505022",
                   "default_action": {
                     "type": "web_url",
-                    "url": data.get("album").get("url")
+                    "url": "https://www.last.fm/music/Adele/_/Rolling+in+the+Deep"
                   },
                   "buttons": [
                     {
                       "type": "web_url",
-                      "url": data.get("album").get("url"),
-                      "title": "Album Details"
+                      "url": "https://www.last.fm/music/Adele/_/Rolling+in+the+Deep",
+                      "title": "View"
                     }
                   ]
                 },
-		      {
-                  "title": data.get("album").get("tracks").get("track")[0].get("name")
-                  "image_url": data.get("album").get("image")[5].get("#text"),
-                  "subtitle": "duration: "+data.get("album").get("tracks").get("track")[0].get("duration")+" seconds",
+                {
+                  "title": "Someone Like You",
+                  "image_url": "https://lastfm-img2.akamaized.net/i/u/300x300/c8cfa0a250a26a361f26fed40b5aec45.png",
+                  "subtitle": "views:9344723",
                   "default_action": {
                     "type": "web_url",
-                    "url": data.get("album").get("tracks").get("track")[0].get("url")
+                    "url": "https://www.last.fm/music/Adele/_/Someone+Like+You"
                   },
                   "buttons": [
                     {
                       "type": "web_url",
-                      "url": data.get("album").get("tracks").get("track")[0].get("url"),
-                      "title": "Song details"
+                      "url": "https://www.last.fm/music/Adele/_/Someone+Like+You",
+                      "title": "View"
                     }
                   ]
                 },
-		      {
-                  "title": data.get("album").get("tracks").get("track")[1].get("name")
-                  "image_url": data.get("album").get("image")[5].get("#text"),
-                  "subtitle": "duration: "+data.get("album").get("tracks").get("track")[1].get("duration")+" seconds",
+                {
+                  "title": "Set Fire to the Rain",
+                  "image_url": "https://lastfm-img2.akamaized.net/i/u/300x300/c8cfa0a250a26a361f26fed40b5aec45.png",
+                  "subtitle": "views:8557425",
                   "default_action": {
                     "type": "web_url",
-                    "url": data.get("album").get("tracks").get("track")[1].get("url")
+                    "url": "https://www.last.fm/music/Adele/_/Set+Fire+to+the+Rain"
                   },
                   "buttons": [
                     {
                       "type": "web_url",
-                      "url": data.get("album").get("tracks").get("track")[1].get("url"),
-                      "title": "Song details"
+                      "url": "https://www.last.fm/music/Adele/_/Set+Fire+to+the+Rain",
+                      "title": "View"
                     }
                   ]
                 },
-		      {
-                  "title": data.get("album").get("tracks").get("track")[2].get("name")
-                  "image_url": data.get("album").get("image")[5].get("#text"),
-                  "subtitle": "duration: "+data.get("album").get("tracks").get("track")[2].get("duration")+" seconds",
+                {
+                  "title": "Chasing Pavements",
+                  "image_url": "https://lastfm-img2.akamaized.net/i/u/300x300/c8cfa0a250a26a361f26fed40b5aec45.png",
+                  "subtitle": "views:5390563",
                   "default_action": {
                     "type": "web_url",
-                    "url": data.get("album").get("tracks").get("track")[2].get("url")
+                    "url": "https://www.last.fm/music/Adele/_/Chasing+Pavements"
                   },
                   "buttons": [
                     {
                       "type": "web_url",
-                      "url": data.get("album").get("tracks").get("track")[2].get("url"),
-                      "title": "Song details"
+                      "url": "https://www.last.fm/music/Adele/_/Chasing+Pavements",
+                      "title": "View"
                     }
                   ]
                 }
