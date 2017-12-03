@@ -83,21 +83,32 @@ def createResponse(speech, displayText,data):
     return {"speech":speech,
 	    "displayText":displayText,
 	    "data": {
-		"facebook": {
-		"attachment": {
-			"type":"template",
-			"payload":{
-				"template_type":"generic",
-				"elements":[
-					{
-						"title":"hell man"
-					}
-				]
-			}
-		}
-		}
-	    }
-   }
+             "facebook": {
+             "attachment": {
+	    "type":"template",
+            "payload":{
+             "template_type":"generic",
+            "elements":[
+            {
+             "title":topsongs[0].get("name"),
+             "image_url":topsongs[0].get("image")[3].get("#text"),
+             "subtitle":"views:"+topsongs[0].get("playcount"),
+	     "default_action": {
+              "type": "web_url",
+              "url": topsongs[0].get("url"),
+             },
+	    "buttons":[
+              {
+                "type":"web_url",
+                "url":topsongs[0].get("url"),
+                "title":"View"
+              }
+	    ]
+           }
+	  ]
+        }}
+      }}
+}
 
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
