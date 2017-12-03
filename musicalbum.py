@@ -81,8 +81,8 @@ def createResponse(speech, displayText,data):
     #topsongs=data.get("toptracks").get("track")
     topsongs=data.get("album").get("tracks").get("track")[0].get("name")
     return {"speech":speech,
-	    "displayText":displayText,
-	    "data": {
+	    "displayText":displayText
+	  '''  "data": {
              "facebook": {
              "attachment": {
 	    "type":"template",
@@ -99,7 +99,7 @@ def createResponse(speech, displayText,data):
               }
 	    }]
       }}
-	}}
+	}}'''
 }
  #   return {"speech":speech,
 #	    "displayText":displayText,
