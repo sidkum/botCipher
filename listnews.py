@@ -88,7 +88,7 @@ def createResponse(speech, displayText,data):
 	    "type":"template",
             "payload":{
              "template_type":"list",
-	     "top_element_style": "compact",
+	     "top_element_style": "large",
             "elements":[
             {
              "title": article[0].get("title"),
