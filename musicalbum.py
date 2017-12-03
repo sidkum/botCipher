@@ -79,7 +79,7 @@ def makeWebhookResult(data):
 def createResponse(speech, displayText,data):
 ##    print("Response:")
 ##    print (speech)
-    topsongs=data.get("album").get("tracks").get("track")
+    	 topsongs=data.get("album").get("tracks").get("track")
          return {"speech":speech,
  	    "displayText":displayText,
 	    "data": {
@@ -92,7 +92,7 @@ def createResponse(speech, displayText,data):
                 {
                   "title": "Rolling in the Deep",
                   "image_url": data.get("album").get("image")[5].get("#text"),
-                  "subtitle": topsongs[0].get("name") + "\n" +"topsongs[1].get("name"),
+                  "subtitle": topsongs[0].get("name"),
                   "default_action": {
                     "type": "web_url",
                     "url": "https://www.last.fm/music/Adele/_/Rolling+in+the+Deep"
