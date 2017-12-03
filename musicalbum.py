@@ -91,7 +91,9 @@ def createResponse(speech, displayText,data):
               "elements": [
                 {
                   "title": "Album : " + data.get("album").get("name")+"          Artist : " +
-			data.get("album").get("artist"),
+			data.get("album").get("artist")+ "          Listeners : "+
+			data.get("album").get("listeners")+"          Playcount:"+
+			data.get("album").get("playcount"),
                   "image_url": data.get("album").get("image")[5].get("#text"),
                   "subtitle": data.get("album").get("wiki").get("summary"),
                   "default_action": {
