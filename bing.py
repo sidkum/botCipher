@@ -25,7 +25,7 @@ from flask import make_response
 import http.client, urllib.parse, json
 
 # Replace the subscriptionKey string value with your valid subscription key.
-subscriptionKey = "377a5c4811db4c34b211bf88c1ee7ea4"
+subscriptionKey = "6aab6f364fc6419f8e31953881c589cd"
 
 # Verify the endpoint URI.  At this writing, only one endpoint is used for Bing
 # search APIs.  In the future, regional endpoints may be available.  If you
