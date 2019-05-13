@@ -7,8 +7,6 @@ install_aliases()
 from urllib.parse import urlparse, urlencode
 from urllib.request import urlopen, Request
 from urllib.error import HTTPError
-from yahoo_weather.weather import YahooWeather
-from yahoo_weather.config.units import Unit
 
 import json
 import os
@@ -42,24 +40,13 @@ def processRequest(req):
         return {}
     data = json.loads(result)
     
-    
-    data = YahooWeather(APP_ID="8eqyZg6s",
-                     api_key="dj0yJmk9dkw3YWVLTEdXUmNRJnM9Y29uc3VtZXJzZWNyZXQmc3Y9MCZ4PTM3",
-                     api_secret="fd427dd3ec3da0046fbd78ac1444f1a660259c6d")
+    apiKey = e8fa3ad8df464a83d97c6e9d9b0a3ff5
     result = req.get("result")
     parameters = result.get("parameters")
     city = parameters.get("geo-city")
     if city is None:
         return None
-    
-    data.get_yahoo_weather_by_city('city', Unit.celsius)
-    print(data.condition.text)
-    print(data.condition.temperature)
-    res = makeWebhookResult(data)
-
-    data.get_yahoo_weather_by_location(35.67194, 51.424438)
-    print(data.condition.text)
-    print(data.condition.temperature)
+    url = "https://api.openweathermap.org/data/2.5/weather?q="+city+"&units=metric&appid="+apiKey
     return res
 
 def makeWebhookResult(data):
