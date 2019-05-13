@@ -1,4 +1,4 @@
-# !/usr/bin/env python
+#!/usr/bin/env python
 
 from __future__ import print_function
 from future.standard_library import install_aliases
@@ -23,8 +23,8 @@ app = Flask(__name__)
 def webhook():
     req = request.get_json(silent=True, force=True)
 
-    print("Request:")
-    print(json.dumps(req, indent=4))
+    #print("Request:")
+    #print(json.dumps(req, indent=4))
 
     res = processRequest(req)
 
@@ -44,8 +44,8 @@ def processRequest(req):
     city = parameters.get("geo-city")
     if city is None:
         return None
-    url = "https://api.openweathermap.org/data/2.5/weather?q="+city+"&units=metric&appid="+apiKey
-    result = urlopen(url).read()
+    yql_url = "https://api.openweathermap.org/data/2.5/weather?q="+city+"&units=metric&appid="+apiKey
+    result = urlopen(yql_url).read()
     data = json.loads(result)
     res = makeWebhookResult(data)
     return res
@@ -62,9 +62,14 @@ def makeWebhookResult(data):
 
     speech = "Today in " + city + ": " +forecast+ \
              ", the temperature is " + tempr + "celsius"
-
     print("Response:")
-print(speech
+    print(speech)
+    return {
+        "speech": speech,
+        "displayText": speech,
+        # "data": data,
+        # "contextOut": [],
+    }
 
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
