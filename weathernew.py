@@ -38,8 +38,6 @@ def webhook():
 def processRequest(req):
     if req.get("result").get("action") != "yahooWeatherForecastNew":
         return {}
-    data = json.loads(result)
-    
     apiKey = e8fa3ad8df464a83d97c6e9d9b0a3ff5
     result = req.get("result")
     parameters = result.get("parameters")
@@ -47,22 +45,26 @@ def processRequest(req):
     if city is None:
         return None
     url = "https://api.openweathermap.org/data/2.5/weather?q="+city+"&units=metric&appid="+apiKey
+    result = urlopen(url).read()
+    data = json.loads(result)
+    res = makeWebhookResult(data)
     return res
 
 def makeWebhookResult(data):
+    query = data.get("weather")
+    if query is None:
+        speech = "query element missing from news's response"
+        return createResponse(speech, speech,data)
+    city = data.get("city")
+    forecast = data.get("weather")[0].get("main")
+    tempr = data.get("main).get("temp")
     # print(json.dumps(item, indent=4))
 
-    speech = "Today in " + location.get('city') + ": " + data.condition.get('text') + \
-             ", the temperature is " + data.condition.get('temp') + " " + units.get('temperature')
+    speech = "Today in " + city + ": " +forecast+ \
+             ", the temperature is " + tempr + "celsius"
 
     print("Response:")
-    print(speech)
-
-    return {
-        "speech": speech,
-        "displayText": speech,
-    }
-
+print(speech
 
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
