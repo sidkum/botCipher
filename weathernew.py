@@ -74,6 +74,8 @@ def makeWebhookResult(data):
 
 def createResponse(speech, displayText,data):
     q1=data.get("weather")
+	q2 = data.get("weather")[0].get("icon")
+	q3 = "http://openweathermap.org/img/wn/"+imgr+"@2x.png"
     return {"speech":speech,
 	    "displayText":displayText,
 	    "data": {
@@ -87,7 +89,7 @@ def createResponse(speech, displayText,data):
             {
              "title": data.get("name"),
              "subtitle": data.get("main").get("temp"),
-             "image_url":imgurl,          
+             "image_url":q3,          
 	    }]
       }}
 	}}
