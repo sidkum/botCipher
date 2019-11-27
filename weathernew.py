@@ -43,8 +43,8 @@ def processRequest(req):
     city = parameters.get("geo-city")
     if city is None:
         return None
-    yql_url = "https://api.openweathermap.org/data/2.5/weather?q="+city+"&units=metric&appid=e8fa3ad8df464a83d97c6e9d9b0a3ff5"
-    result = urlopen(yql_url).read()
+    url = "https://api.openweathermap.org/data/2.5/weather?q="+city+"&units=metric&appid=e8fa3ad8df464a83d97c6e9d9b0a3ff5"
+    result = urlopen(url).read()
     data = json.loads(result)
     res = makeWebhookResult(data)
     return res
@@ -54,10 +54,10 @@ def makeWebhookResult(data):
     if query is None:
         speech = "query element missing from news's response"
         return createResponse(speech, speech,data)
-    city = data.get("city")
+    city = data.get("name")
     forecast = data.get("weather")[0].get("main")
     tempr = data.get("main").get("temp")
-    # print(json.dumps(item, indent=4))
+    print(json.dumps(item, indent=4))
 
     speech = "Today in " + city + ": " +forecast+ \
              ", the temperature is " + tempr + "celsius"
