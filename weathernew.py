@@ -62,7 +62,7 @@ def makeWebhookResult(data):
     imgr = data.get("weather")[0].get("icon")
     imgurl = "http://openweathermap.org/img/wn/"+imgr+"@2x.png"
     speech = "Today in " + city + ", the temperature is " + str(tempr) + "° Celsius" \
-                ", Forecast: " + forecast + ", Humidity: " + str(humidity) + "% Wind Speed: " + str(wind)+"km/h"
+                ", Forecast: " + forecast + ", Humidity: " + str(humidity) + "%, Wind Speed: " + str(wind)+" km/h"
     print("Response:")
     print(speech)
     return {
