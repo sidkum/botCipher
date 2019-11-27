@@ -38,13 +38,12 @@ def webhook():
 def processRequest(req):
     if req.get("result").get("action") != "yahooWeatherForecastNew":
         return {}
-    apiKey = 'e8fa3ad8df464a83d97c6e9d9b0a3ff5'
     result = req.get("result")
     parameters = result.get("parameters")
     city = parameters.get("geo-city")
     if city is None:
         return None
-    yql_url = "https://api.openweathermap.org/data/2.5/weather?q="+city+"&units=metric&appid="+apiKey
+    yql_url = "https://api.openweathermap.org/data/2.5/weather?q="+city+"&units=metric&appid=e8fa3ad8df464a83d97c6e9d9b0a3ff5"
     result = urlopen(yql_url).read()
     data = json.loads(result)
     res = makeWebhookResult(data)
