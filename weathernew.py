@@ -74,8 +74,8 @@ def makeWebhookResult(data):
 
 def createResponse(speech, displayText,data):
     q1=data.get("weather")
-	q2 = data.get("weather")[0].get("icon")
-	q3 = "http://openweathermap.org/img/wn/"+imgr+"@2x.png"
+    q2 = data.get("weather")[0].get("icon")
+    q3 = "http://openweathermap.org/img/wn/"+imgr+"@2x.png"
     return {"speech":speech,
 	    "displayText":displayText,
 	    "data": {
