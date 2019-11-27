@@ -89,8 +89,14 @@ def createResponse(speech, displayText,data):
              "subtitle": data.get("main").get("temp"),
              "image_url":imgurl,          
 	    }
-	   }]
-
+	   }],
+      	"buttons": [
+          {
+            "title": "Read More",
+            "type": "postback",
+            "payload": "read more" 
+	  }
+        ] 
       }}
 	}}
      }
