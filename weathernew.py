@@ -38,7 +38,7 @@ def webhook():
 def processRequest(req):
     if req.get("result").get("action") != "yahooWeatherForecastNew":
         return {}
-    apiKey = e8fa3ad8df464a83d97c6e9d9b0a3ff5
+    apiKey = 'e8fa3ad8df464a83d97c6e9d9b0a3ff5'
     result = req.get("result")
     parameters = result.get("parameters")
     city = parameters.get("geo-city")
