@@ -64,12 +64,36 @@ def makeWebhookResult(data):
                 ", forecast: " + forecast + ", humidity: " + str(humidity) + " %"
     print("Response:")
     print(speech)
-    return {
-        "speech": speech,
-        "displayText": speech,
+    #return {
+    #    "speech": speech,
+    #    "displayText": speech,
         # "data": data,
         # "contextOut": [],
-    }
+    #}
+    return createResponse(speech, speech,data)
+
+def createResponse(speech, displayText,data):
+    q1=data.get("weather")
+    return {"speech":speech,
+	    "displayText":displayText,
+	    "data": {
+             "facebook": {
+             "attachment": {
+	    "type":"template",
+            "payload":{
+             "template_type":"list",
+	     "top_element_style": "large",
+            "elements":[
+            {
+             "title": data.get("name"),
+             "subtitle": data.get("main").get("temp"),
+             "image_url":imgurl,          
+	    }
+	   }]
+
+      }}
+	}}
+     }
 
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
